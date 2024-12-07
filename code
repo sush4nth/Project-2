@@ -1,0 +1,43 @@
+import random
+import time
+
+class Hurricane:
+    def __init__(self, name, wind_speed, pressure):
+        self.name = name
+        self.wind_speed = wind_speed  
+        self.pressure = pressure 
+        self.category = self.classify()
+
+    def classify(self):
+        if self.wind_speed >= 157:
+            return "Category 5"
+        elif self.wind_speed >= 130:
+            return "Category 4"
+        elif self.wind_speed >= 111:
+            return "Category 3"
+        elif self.wind_speed >= 96:
+            return "Category 2"
+        elif self.wind_speed >= 74:
+            return "Category 1"
+        else:
+            return "Tropical Storm"
+
+    def update(self, wind_speed, pressure):
+       
+        self.wind_speed = wind_speed
+        self.pressure = pressure
+        self.category = self.classify()
+
+    def __str__(self):
+        
+        return (f"Hurricane {self.name} - Wind Speed: {self.wind_speed} mph, "
+                f"Pressure: {self.pressure} hPa, Classification: {self.category}")
+
+
+# Simulation function
+def simulate_hurricane():
+    hurricane = Hurricane("SimStorm", random.randint(60, 160), random.randint(950, 1010))
+    print(hurricane)
+
+    for _ in range(10):  
+        time.sleep(1)
