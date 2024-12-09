@@ -11,6 +11,13 @@ class Hurricane:
         wind_speed (int): The wind speed of the hurricane in mph.
         pressure (int): The atmospheric pressure of the hurricane in hPa.
         """
+        if not (0 <= wind_speed <= 200):
+            print("Error: Wind speed must be between 0 and 200 mph.")
+            wind_speed = max(0, min(wind_speed, 200))
+        if not (900 <= pressure <= 1050):
+            print("Error: Pressure must be between 900 and 1050 hPa.")
+            pressure = max(900, min(pressure, 1050))
+        
         self.name = name
         self.wind_speed = wind_speed  
         self.pressure = pressure 
@@ -44,6 +51,13 @@ class Hurricane:
         wind_speed (int): The new wind speed of the hurricane in mph.
         pressure (int): The new atmospheric pressure of the hurricane in hPa.
         """
+        if not (0 <= wind_speed <= 200):
+            print("Error: Wind speed must be between 0 and 200 mph.")
+            wind_speed = max(0, min(wind_speed, 200))
+        if not (900 <= pressure <= 1050):
+            print("Error: Pressure must be between 900 and 1050 hPa.")
+            pressure = max(900, min(pressure, 1050))
+        
         self.wind_speed = wind_speed
         self.pressure = pressure
         self.category = self.classify()
